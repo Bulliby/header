@@ -9,11 +9,11 @@ let s:asciiart = [
 
 let s:styles = [
    \{
-   \'extensions': ['\.css' ,'\.c$', '\.h$', '\.cc$', '\.hh$', '\.cpp$', '\.hpp$'],
+   \'extensions': ['\.css' ,'\.c$', '\.h$', '\.cc$', '\.hh$', '\.cpp$', '\.hpp$', '\.php$'],
    \'start': '/*', 'end': '*/', 'fill': '*'
    \},
    \{
-   \'extensions': ['\.php$' ,'\.htm$', '\.html$', '\.xml$'],
+   \'extensions': ['\.htm$', '\.html$', '\.xml$'],
    \'start': '<!--', 'end': '-->', 'fill': '*'
    \},
    \{
@@ -51,11 +51,8 @@ function! s:trimlogin ()
 endfunction
 
 function! s:trimemail ()
- let l:trimemail = strpart($MAIL, 0, s:contentlen - 16)
- if strlen(l:trimemail) == 0
-  let l:trimemail = "wellsguillaume@gmail.com"
- endif
- return l:trimemail
+  let l:trimemail = "wellsguillaume+at+gmail.com"
+  return l:trimemail
 endfunction
 
 function! s:midgap ()
@@ -175,16 +172,3 @@ endfunction
 command! Stdheader call s:insert ()
 nmap <F1> :Stdheader<CR>
 autocmd BufWritePre * call s:update ()
-     ,===:'.,            `-.__.
-			`:.`---.__         `-._
-			  `:.     `--.         `.
-				\.        `.         `.
-		(,,(,    \.         `.   ____,-`.,
-	 (,'     `/   \.   ,--.___`.'
- ,  ,'  ,--.  `,   \.;'         `
-  `{G, {    \  :    \;
-	|,,'    /  /    //
-	|;;    /  ,' ,-//.    ,---.      ,
-	\;'   /  ,' /  _  \  /  _  \   ,'/
-   		  \   `'  / \  `'  / \  `.' /
-		   `.___,'   `.__,'   `.__,'  
